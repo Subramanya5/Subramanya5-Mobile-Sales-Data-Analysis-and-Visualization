@@ -1,0 +1,29 @@
+# Dataset Exploration
+# Data Preprocessing:
+
+How were missing values handled for different columns, and why were specific methods chosen (e.g., filling CustomerID with -1)?
+Why was it necessary to recalculate the TotalAmount column, and how was it done?
+What is the significance of transforming the PricePerUnit using the mean value within each ProductCategory?
+
+# Exploratory Data Analysis (EDA):
+
+What trends were observed in the sales data over time, and how might these trends influence business decisions?
+How did the analysis differentiate the impact of discounts on different product categories?
+What correlations were discovered between key numerical variables, and how do these correlations aid in understanding the sales dynamics?
+
+# Model Building and Evaluation:
+
+Why was the K-Nearest Neighbors (KNN) model chosen for predicting PricePerUnit, and what were the key features used for the prediction?
+What were the results of the model evaluation in terms of Mean Squared Error (MSE), Mean Absolute Error (MAE), and R-squared (R²) values?
+How was the accuracy of the model interpreted using R-squared, and what does it suggest about the model's performance?
+
+# Visualization:
+
+What insights were gained from visualizing the actual vs predicted values of TotalAmount?
+How did the visualization of sales trends and product category distributions help in understanding customer behavior?
+
+# Application of Insights:
+
+How can the findings from this analysis be applied to develop more effective pricing strategies?
+In what ways can businesses utilize the predictive model for future sales and pricing forecasts?
+How can the analysis of customer behavior through discounts and price points enhance marketing campaigns?
