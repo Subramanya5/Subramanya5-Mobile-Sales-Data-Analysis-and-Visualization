@@ -120,7 +120,45 @@ print(f"R-squared (R²): {r2}")
 # A higher R² indicates a better fit, with 1 being a perfect fit.
 accuracy = r2 * 100
 print(f"Model Accuracy (R² as a percentage): {accuracy:.2f}%")
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
 
+# Select features for clustering
+# Example: Using 'Quantity', 'PricePerUnit', and 'TotalAmount' for customer segmentation
+features = df[['Quantity', 'PricePerUnit', 'TotalAmount']]
+
+# Standardize the features
+scaler = StandardScaler()
+scaled_features = scaler.fit_transform(features)
+
+# Applying K-Means Clustering
+kmeans = KMeans(n_clusters=4, random_state=42)
+df['Cluster'] = kmeans.fit_predict(scaled_features)
+
+# Adding cluster labels to the original dataframe
+df['Cluster'] = kmeans.labels_
+
+# Analyzing the resulting clusters
+# Check if 'Cluster' column exists
+if 'Cluster' in df.columns:
+    # Select numeric columns for analysis
+    numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
+
+    # Perform the groupby operation only on numeric columns
+    cluster_analysis = df.groupby('Cluster')[numeric_cols].mean()
+
+    # Display the results
+    print(cluster_analysis)
+else:
+    print("The 'Cluster' column does not exist in the DataFrame.")
+
+# Visualizing the clusters
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x='PricePerUnit', y='TotalAmount', hue='Cluster', data=df, palette='viridis')
+plt.title('K-Means Clustering: Price vs Total Amount')
+plt.xlabel('Price Per Unit')
+plt.ylabel('Total Amount')
+plt.show()
 # Visualize the Prediction
 plt.scatter(y_test, y_pred)
 plt.xlabel('Actual Total Amount')
