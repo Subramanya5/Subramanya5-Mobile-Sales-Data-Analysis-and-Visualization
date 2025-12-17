@@ -1,7 +1,7 @@
 # Dataset Exploration
 # Data Preprocessing:
 
-How were missing values handled for different columns, and why were specific methods chosen (e.g., filling CustomerID with -1)?
+How were missing values handled for different columns, and why were specific methods chosen?
 Why was it necessary to recalculate the TotalAmount column, and how was it done?
 What is the significance of transforming the PricePerUnit using the mean value within each ProductCategory?
 
